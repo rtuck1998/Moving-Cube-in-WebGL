@@ -11,15 +11,18 @@ var numVertices  = 36;
 var positionsArray = [];
 var colorsArray = [];
 
+var left = -0.5;
+var right = 0.5;
+
 var vertices = [
-        vec4(-0.5, -0.5,  0.5, 1.0),
-        vec4(-0.5,  0.5,  0.5, 1.0),
-        vec4(0.5,  0.5,  0.5, 1.0),
-        vec4(0.5, -0.5,  0.5, 1.0),
-        vec4(-0.5, -0.5, -0.5, 1.0),
-        vec4(-0.5,  0.5, -0.5, 1.0),
-        vec4(0.5,  0.5, -0.5, 1.0),
-        vec4(0.5, -0.5, -0.5, 1.0),
+        vec4(left, left,  right, 1.0),
+        vec4(left,  right,  right, 1.0),
+        vec4(right,  right,  right, 1.0),
+        vec4(right, left,  right, 1.0),
+        vec4(left, left, left, 1.0),
+        vec4(left,  right, left, 1.0),
+        vec4(right,  right, left, 1.0),
+        vec4(right, left, left, 1.0),
     ];
 
 // Set random face colours for cube
@@ -141,10 +144,20 @@ window.onload = function init() {
 				theta += dr;
 			break;
 			case 82: //"R"
-				colour1 = Math.random();
-				colour2 = Math.random();
-				colour3 = Math.random();
-				colour4 = Math.random();
+				if (left >= -1) {
+					left = left - 0.01;
+				}
+				if (right <= 1) {
+					right = right + 0.01;
+				}
+			break;
+			case 84: //"T"
+				if (left <= 0) {
+					left = left + 0.01;
+				}
+				if (right >= 0) {
+					right = right - 0.01;
+				}
 			break;
 		}
 	}
