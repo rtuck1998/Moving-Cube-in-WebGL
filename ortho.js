@@ -23,15 +23,19 @@ var vertices = [
     ];
 
 // Set random face colours for cube
+var colour1 = Math.random();
+var colour2 = Math.random();
+var colour3 = Math.random();
+var colour4 = Math.random();
 var vertexColors = [
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
-        vec4(Math.random(), Math.random(), Math.random(), 1.0),  
+        vec4(colour1, colour2, colour3, 1.0),  
+        vec4(colour1, colour3, colour2, 1.0),  
+        vec4(colour3, colour2, colour1, 1.0),  
+        vec4(colour2, colour3, colour4, 1.0),  
+        vec4(colour4, colour3, colour1, 1.0),  
+        vec4(colour4, colour1, colour2, 1.0),  
+        vec4(colour3, colour4, colour1, 1.0),  
+        vec4(colour4, colour2, colour3, 1.0),  
     ];
 
 // Variables for rotation
@@ -136,6 +140,12 @@ window.onload = function init() {
 			case 40: //"Down"
 				theta += dr;
 			break;
+			case 82: //"R"
+				colour1 = Math.random();
+				colour2 = Math.random();
+				colour3 = Math.random();
+				colour4 = Math.random();
+			break;
 		}
 	}
 
@@ -160,4 +170,6 @@ var render = function() {
         requestAnimationFrame(render);
     }
 }
+
+
 orthoExample();
